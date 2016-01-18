@@ -46,7 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Perso_Camera.js" />
-     <Compile Include="Assets\UI\MenuPrincipale\Script\BoutonJouez.js" />
+     <Compile Include="Assets\Scripts\scGestionInventaire.js" />
+     <Compile Include="Assets\Scripts\scGestionMagasin.js" />
+     <Compile Include="Assets\Scripts\scGestionTeleporteurs.js" />
+     <Compile Include="Assets\UI\MenuPrincipal\Script\BoutonJouez.js" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
