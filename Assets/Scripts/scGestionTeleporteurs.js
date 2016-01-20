@@ -14,9 +14,13 @@ function OnTriggerEnter(trigg:Collider)
 	{
 		Application.LoadLevel (3);
 	}
+
+	if (trigg.gameObject.tag == "teleportTuto") 
+	{
+		Application.LoadLevel (2);
+	}
+
+
 }
 
 
-function teleportNiveau1 () {
-	Application.LoadLevel (3);
-}
