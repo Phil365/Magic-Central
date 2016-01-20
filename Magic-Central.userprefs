@@ -2,9 +2,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\scGestionTeleporteurs.js">
     <Files>
-      <File FileName="Assets\Scripts\scGestionInventaire.js" Line="74" Column="71" />
-      <File FileName="Assets\Scripts\scGestionMagasin.js" Line="144" Column="5" />
-      <File FileName="Assets\Scripts\scGestionTeleporteurs.js" Line="13" Column="1" />
+      <File FileName="Assets\Scripts\scGestionTeleporteurs.js" Line="20" Column="27" />
+      <File FileName="Assets\Scripts\scGestionInventaire.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\scGestionMagasin.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\scDeplacementTirHero.js" Line="168" Column="80" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
