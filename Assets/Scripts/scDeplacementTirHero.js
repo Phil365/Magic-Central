@@ -147,7 +147,7 @@ function Tourner ()
         var nouvelleRotation : Quaternion = Quaternion.LookRotation (joueurSouris);
 
         // Set the player's rotation to this new rotation.
-        joueurRigidbody.MoveRotation (nouvelleRotation);
+        joueurRigidbody.MoveRotation(nouvelleRotation);
 
 		if(Input.GetButton("Fire1"))
 		{
@@ -158,14 +158,14 @@ function Tourner ()
 		
 		if(this.projectile){
 
-			// Vecteur qui part de la position du joueur
-			var position:Vector3=transform.position;
-			position.y +=0.5;
+				// Vecteur qui part de la position du joueur
+				var position:Vector3=transform.position;
+				position.y +=0.5;
 
 
-			//Instantiation des projectiles 
-			nouveauProjectile = Instantiate(projectile, position, transform.rotation);
-			nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
+				//Instantiation des projectiles 
+				nouveauProjectile = Instantiate(projectile, position, transform.rotation);
+				nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
 
 			}
 		}
