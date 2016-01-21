@@ -11,7 +11,9 @@ function Update () {
 }
 
 function OnTriggerEnter (autre : Collider) {
-	if (autre.tag == 'ennemi') {
+	Debug.Log(autre);
+	if (autre.gameObject.tag == 'ennemi') {
 
+		autre.gameObject.SendMessageUpwards("diminuerVie", degat, SendMessageOptions.DontRequireReceiver);
 	}
 }

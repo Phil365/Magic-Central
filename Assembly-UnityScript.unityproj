@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\scGestionMagasin.js" />
      <Compile Include="Assets\Scripts\scGestionTeleporteurs.js" />
      <Compile Include="Assets\Scripts\scMinion.js" />
+     <Compile Include="Assets\Scripts\scObjetRamasse.js" />
      <Compile Include="Assets\Scripts\scOr.js" />
      <Compile Include="Assets\Scripts\scPerso_Camera.js" />
      <Compile Include="Assets\Scripts\scPotionMana.js" />
