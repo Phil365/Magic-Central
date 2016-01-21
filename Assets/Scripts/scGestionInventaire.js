@@ -74,3 +74,12 @@ function augmenterPotionMana(nbPotion:int)
 	// On stocke dans des players prefs car le joueur va changer de scene
 	PlayerPrefs.SetInt("Or", orInventaire);
 }
+
+function augmenterOr(nbOr:int) 
+{
+	
+	orInventaire += nbOr;
+	Debug.Log("Or :" + orInventaire);
+	// On stocke dans des players prefs car le joueur va changer de scene
+	PlayerPrefs.SetInt("Or", orInventaire);
+}
