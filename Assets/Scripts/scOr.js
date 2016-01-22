@@ -14,7 +14,7 @@ function Update () {
 
 function OnTriggerEnter (autre : Collider) {
 
-	if (autre.tag == "Player") {
+	if (autre.gameObject.tag == "Player") {
 		scInventaireHeros.SendMessageUpwards("augmenterOr", nbOr, SendMessageOptions.DontRequireReceiver);
 		Destroy(this.gameObject);
 	}

@@ -18,3 +18,7 @@ function Update () {
 		Destroy(this.gameObject);
 	}
 }
+
+function diminuerVie(nbDegat:float) {
+	vieMinion-=nbDegat;
+}
