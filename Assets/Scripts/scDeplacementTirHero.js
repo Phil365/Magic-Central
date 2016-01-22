@@ -1,4 +1,29 @@
-﻿ /*
+﻿import UnityEngine.UI;
+ /*
+ * Viedisponible pour le heros
+ * @access public
+ * @var Viedisponible
+ */                          
+var Viedisponible : int;      
+/*
+ * Manadisponible pour le heros
+ * @access public
+ * @var Manadisponible
+ */                          
+var Manadisponible : int;     
+/*
+ * Référence au slider de mana
+ * @access public
+ * @var ManaSlider
+ */                               
+var ManaSlider: Slider;    
+/*
+ * Référence au slider de VieSlider
+ * @access public
+ * @var VieSlider
+ */                               
+var VieSlider: Slider;     
+  /*
  * Vitesse de déplacement du hero 
  * @access public
  * @var vitesse
@@ -36,7 +61,13 @@ private var masqueSol:int;
  */
 
 private var camRayLength:float = 100;
+/*
+ * Définition de la reserve de vie du joueur
+ * @access public
+ * @var vie
+ */
 
+public var vie:int = 100;
  /*
  * Définition de la reserve de mana du joueur
  * @access public
@@ -76,22 +107,40 @@ private var nouveauProjectile:GameObject;
  */
 
 private var force:int=100;
-
+private var loopHandle: boolean = true;
 private var saut= false;
-
+private var gestionPotion:scGestionInventaire;
+private var manatotal:int=0;
+private var vieTotal:int=0;
+var DamageImage:UI.Image;
+//var deathclip : AudioClip;
+var flashSpeed : float=5f;
+var flashColour : Color = new Color(1f,0f,0f,0.1f);
+//private var playerAudio:AudioSource;
+private var estMort: boolean;
+private var endommage : boolean;
  /*
  * Source : https://unity3d.com/learn/tutorials/projects/survival-shooter/player-character?playlist=17144
  * Rotation suivant l'endroit du curseur de la souris
  */
 
-
+  function Start ()
+ {
+	 while(loopHandle){
+	 regenMaya();
+	
+	  yield WaitForSeconds(2);
+	 }
+ }
 function Awake ()
-{
+{//playerAudio = GetComponent(AudioSource);	
+	gestionPotion = GetComponent(scGestionInventaire);
     // On récupere le layer qui corresponds au sol
     masqueSol = LayerMask.GetMask ("sol");
     // On récupere le ridigbody du joueur
     joueurRigidbody = GetComponent (Rigidbody);
-    
+    Manadisponible=mana;
+    Viedisponible=vie;
 }
 
 
@@ -105,10 +154,30 @@ function FixedUpdate ()
     Deplacer(haut, bas);
 
     
-    Tourner();
+  
 
 }
-
+function Update(){
+  Tourner();
+  Debug.Log(DamageImage);
+  if(endommage)
+  {
+  	DamageImage.color = flashColour;
+  }else {
+  	DamageImage.color = Color.Lerp(DamageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+  }
+ if(Input.GetKeyDown (KeyCode.E) && manatotal>0 && Manadisponible<60){
+    Manadisponible+=20;
+   	gestionPotion.augmenterPotionMana(-1);
+    }
+     if(Input.GetKeyDown (KeyCode.Q) && vieTotal>0 && Viedisponible<100){
+    Viedisponible+=20;
+   	gestionPotion.augmenterPotionVie(-1);
+    }
+    ManaSlider.value = Manadisponible;
+    VieSlider.value = Viedisponible;
+    endommage= false;
+}
 
 
 function Deplacer (haut : float, bas : float)
@@ -148,26 +217,74 @@ function Tourner ()
 
         // Set the player's rotation to this new rotation.
         joueurRigidbody.MoveRotation(nouvelleRotation);
-
-		if(Input.GetButton("Fire1"))
-		{
-			mana-=20;
-		}
-
+        if (Input.GetButtonDown('Fire1'))
+        {
+        Manadisponible-=10;
+        if(Manadisponible <=0)
+        {
+        Manadisponible = 0;
+        }
+        ManaSlider.value = Manadisponible;
+        }
 		if (Input.GetButtonUp("Fire1")){
-		
-		if(this.projectile){
+			if(Manadisponible>1){
+				if(this.projectile){
 
 				// Vecteur qui part de la position du joueur
 				var position:Vector3=transform.position;
 				position.y +=0.5;
-
-
 				//Instantiation des projectiles 
 				nouveauProjectile = Instantiate(projectile, position, transform.rotation);
 				nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
 
+				}	
 			}
 		}
     }
+}
+function regenMaya(){
+	if(Manadisponible < 60){
+
+	Manadisponible += 10;
+	}
+	else if(Manadisponible >= 61){
+
+	Manadisponible = 60;
+	}
+
+}
+
+function MettreAJourTotal(nbPotionsMana:uint)
+{
+manatotal=nbPotionsMana;
+
+}
+
+function MettreAJourTotalVie(nbPotionsVie:uint)
+{
+vieTotal=nbPotionsVie;
+
+}
+public function PrendDamage(quantite:int)
+{	
+	
+	endommage = true;
+
+	Viedisponible -= quantite;
+	VieSlider.value = Viedisponible;
+//playerAudio.play();
+
+	if(Viedisponible <= 0 && !estMort)
+	{
+		Mort();
+	}
+
+
+}
+
+function Mort()
+{
+estMort=true;
+//playerAudio.clip = deathclip;
+//playerAudio.Play ();
 }

@@ -14,7 +14,7 @@ function Update () {
 
 function OnTriggerEnter (autre : Collider) {
 
-	if (autre.tag == "Player" && scInventaireHeros.nbPotionsVie < 3) {
+	if (autre.tag == "Hero" && scInventaireHeros.nbPotionsVie < 3) {
 		scInventaireHeros.SendMessageUpwards("augmenterPotionVie", 1, SendMessageOptions.DontRequireReceiver);
 		Destroy(this.gameObject);
 	}
