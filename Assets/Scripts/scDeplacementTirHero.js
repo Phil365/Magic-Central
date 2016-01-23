@@ -119,19 +119,21 @@ var flashColour : Color = new Color(1f,0f,0f,0.1f);
 //private var playerAudio:AudioSource;
 private var estMort: boolean;
 private var endommage : boolean;
+
  /*
  * Source : https://unity3d.com/learn/tutorials/projects/survival-shooter/player-character?playlist=17144
  * Rotation suivant l'endroit du curseur de la souris
  */
 
-  function Start ()
+function Start ()
  {
 	 while(loopHandle){
-	 regenMaya();
+	 regenMana();
 	
 	  yield WaitForSeconds(2);
 	 }
  }
+
 function Awake ()
 {//playerAudio = GetComponent(AudioSource);	
 	gestionPotion = GetComponent(scGestionInventaire);
@@ -153,13 +155,14 @@ function FixedUpdate ()
     
     Deplacer(haut, bas);
 
-    
-  
 
 }
+
 function Update(){
+
   Tourner();
-  Debug.Log(DamageImage);
+
+
   if(endommage)
   {
   	DamageImage.color = flashColour;
@@ -177,6 +180,7 @@ function Update(){
     ManaSlider.value = Manadisponible;
     VieSlider.value = Viedisponible;
     endommage= false;
+
 }
 
 
@@ -242,7 +246,7 @@ function Tourner ()
 		}
     }
 }
-function regenMaya(){
+function regenMana(){
 	if(Manadisponible < 60){
 
 	Manadisponible += 10;
