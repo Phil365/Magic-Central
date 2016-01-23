@@ -1,5 +1,5 @@
 ﻿#pragma strict
-
+import UnityEngine.UI;
 /*
  * Contient le nombre d'or du personnage
  * @access public
@@ -22,19 +22,49 @@
  */
 
  public var nbPotionsMana:int;
+  /*
+ * Référence ArgentTexte
+ * @access public
+ * @var ArgentTexte
+ */                               
+public var ArgentTexte:Text;      
 
+   /*
+ * Référence  PotionSant
+ * @access public
+ * @var  PotionSant
+ */                               
+public var PotionSanteTexte:Text;     
+
+   /*
+ * Référence PotionMana
+ * @access public
+ * @var PotionMana
+ */                               
+public var PotionManaTexte:Text;       
+private var gestionMana:scDeplacementTirHero;
 
 function Start () {
 
 	// Variable de test
 	orInventaire = 200;
-
+	nbPotionsVie =0;
+	nbPotionsMana =0;
 }
 
+function Awake ()
+{
+gestionMana= GetComponent(scDeplacementTirHero);
+}
 function Update () {
-
-	
-
+ArgentTexte.text = orInventaire.ToString();	
+PotionSanteTexte.text = nbPotionsVie.ToString();	
+PotionManaTexte.text = nbPotionsMana.ToString();	
+if(orInventaire<0){orInventaire=0;}
+if(nbPotionsVie<0){nbPotionsVie=0;}
+if(nbPotionsMana<0){nbPotionsMana=0;}
+gestionMana.MettreAJourTotal(nbPotionsMana);
+gestionMana.MettreAJourTotalVie(nbPotionsVie);
 }
 
 function diminutionOrVie(prixPotionVie:int) 

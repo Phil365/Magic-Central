@@ -9,6 +9,8 @@ TagManager:
   - Fire
   - teleportTuto
   - ennemi
+  - Hero
+  - teleportHub
   layers:
   - Default
   - TransparentFX

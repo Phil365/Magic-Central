@@ -20,6 +20,11 @@ function OnTriggerEnter(trigg:Collider)
 		Application.LoadLevel (2);
 	}
 
+	if (trigg.gameObject.tag == "teleportHub") 
+	{
+		Application.LoadLevel (1);
+	}
+
 
 }
 

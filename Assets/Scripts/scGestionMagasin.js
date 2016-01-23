@@ -102,7 +102,7 @@ function Start () {
 
 function Update () {
 
-	if (trig == true) 
+	if (trig == true && gameObject.name == "trigMagasin") 
 	{
 		ouvrirPanneauPotions();
 	}
