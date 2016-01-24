@@ -41,6 +41,8 @@ private var cam : Camera;
 private var planes : Plane[];
 
 
+// Source du code ayant servit de modele  : http://docs.unity3d.com/ScriptReference/GeometryUtility.TestPlanesAABB.html
+
 function Start () {
 
 	cam = Camera.main;
