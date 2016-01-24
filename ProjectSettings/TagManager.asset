@@ -11,6 +11,9 @@ TagManager:
   - ennemi
   - Hero
   - teleportHub
+  - potionMana
+  - potionVie
+  - tasOr
   layers:
   - Default
   - TransparentFX
