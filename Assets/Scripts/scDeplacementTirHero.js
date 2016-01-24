@@ -76,13 +76,6 @@ public var vie:int = 100;
 
 public var mana:int = 60;
 
- /*
- * Accès au character controller du hero
- * @access public
- * @var personnage
- */
-
-public var personnage:CharacterController; 
 
  /*
  * Projectile (attaque magique du personnage)
