@@ -229,11 +229,13 @@ function Tourner ()
 
 				// Vecteur qui part de la position du joueur
 				var position:Vector3=transform.position;
-				position.y +=0.5;
+				position.y +=0.75;
+				Debug.Log("joueurSouris:" + joueurSouris);
+
 				//Instantiation des projectiles 
 				nouveauProjectile = Instantiate(projectile, position, transform.rotation);
 				nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
-
+			
 				}	
 			}
 		}

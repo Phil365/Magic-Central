@@ -55,7 +55,7 @@ function Update () {
 
 	if (GeometryUtility.TestPlanesAABB(planes, projectileCollider.bounds)) 
 	{
-		Debug.Log("trouvé");
+		//Debug.Log("trouvé");
 	}
 
 	else 
