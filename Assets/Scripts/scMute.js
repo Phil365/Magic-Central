@@ -1,9 +1,9 @@
 ﻿#pragma strict
 
-var musique: AudioSource = GetComponent.<AudioSource>(); //Prend l'audio source et la place dans la variable musique
+public var musique:AudioSource;
 
 function Start () {
-
+	//musique = GetComponent.<AudioSource>(); //Prend l'audio source et la place dans la variable musique
 }
 
 function Update () {
