@@ -15,6 +15,15 @@ import UnityEngine.UI;
 
  public var nbPotionsVie:int;
 
+
+ /*
+ * Contient le nombre de potions de vie max
+ * @access public
+ * @var nbPotionsVieMax
+ */
+
+ public var nbPotionsVieMax:int=3;
+
   /*
  * Contient le nombre de potions de mana 
  * @access public
@@ -22,6 +31,15 @@ import UnityEngine.UI;
  */
 
  public var nbPotionsMana:int;
+
+  /*
+ * Contient le nombre de potions de mana max
+ * @access public
+ * @var nbPotionsManaMax
+ */
+
+ public var nbPotionsManaMax:int=3;
+
   /*
  * Référence ArgentTexte
  * @access public
@@ -54,17 +72,18 @@ function Start () {
 
 function Awake ()
 {
-gestionMana= GetComponent(scDeplacementTirHero);
+	gestionMana= GetComponent(scDeplacementTirHero);
 }
+
 function Update () {
-ArgentTexte.text = orInventaire.ToString();	
-PotionSanteTexte.text = nbPotionsVie.ToString();	
-PotionManaTexte.text = nbPotionsMana.ToString();	
-if(orInventaire<0){orInventaire=0;}
-if(nbPotionsVie<0){nbPotionsVie=0;}
-if(nbPotionsMana<0){nbPotionsMana=0;}
-gestionMana.MettreAJourTotal(nbPotionsMana);
-gestionMana.MettreAJourTotalVie(nbPotionsVie);
+	ArgentTexte.text = orInventaire.ToString();	
+	PotionSanteTexte.text = nbPotionsVie.ToString();	
+	PotionManaTexte.text = nbPotionsMana.ToString();	
+	if(orInventaire<0){orInventaire=0;}
+	if(nbPotionsVie<0){nbPotionsVie=0;}
+	if(nbPotionsMana<0){nbPotionsMana=0;}
+	gestionMana.MettreAJourTotal(nbPotionsMana);
+	gestionMana.MettreAJourTotalVie(nbPotionsVie);
 }
 
 function diminutionOrVie(prixPotionVie:int) 
@@ -112,4 +131,24 @@ function augmenterOr(nbOr:int)
 	Debug.Log("Or :" + orInventaire);
 	// On stocke dans des players prefs car le joueur va changer de scene
 	PlayerPrefs.SetInt("Or", orInventaire);
+}
+
+function OnTriggerEnter (autre : Collider) {
+	if (autre.gameObject.tag == "tasOr") {
+		augmenterOr(25);
+		Destroy(autre.gameObject);
+	}
+	if (autre.gameObject.tag == "potionVie") {
+		if (nbPotionsVie <= nbPotionsVieMax){
+			augmenterPotionVie(1);
+			Destroy(autre.gameObject);
+		}
+	}
+	if (autre.gameObject.tag == "potionMana") {
+		if (nbPotionsMana <= nbPotionsManaMax){
+			augmenterPotionMana(1);
+			Destroy(autre.gameObject);
+		}
+	}
+
 }

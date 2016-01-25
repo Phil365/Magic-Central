@@ -1,24 +1,33 @@
 ﻿#pragma strict
 
-public var type:String;
-public var nb:int;
 public var potionVie: GameObject;
 public var potionMana: GameObject;
 public var tasOr: GameObject;
 
 function Start () {
-	type ="";
-	nb=0;
+
 }
 
 function Update () {
 
 }
 
-function OnTriggerEnter (autre : Collider) {
-	
-}
+function InstancierObjet (type) {
 
-function Instancier (type, nb) {
-	
+	switch (type) {
+
+		case "potionVie":
+		Instantiate(this.potionVie, transform.position, transform.rotation);
+		break;
+
+		case "potionMana":
+		Instantiate(this.potionVie, transform.position, transform.rotation);
+		break;
+
+		case "tasOr" :
+		Instantiate(this.tasOr, transform.position, transform.rotation);
+		break;
+	}
+
+
 }
