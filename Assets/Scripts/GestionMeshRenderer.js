@@ -1,7 +1,7 @@
 ﻿#pragma strict
-public var hero1: GameObject;
-public var hero2: GameObject;
-public var hero3: GameObject;
+public var Nakiya: GameObject;
+public var Kaseem: GameObject;
+public var Kayden: GameObject;
 var heroEnregistrer : int =1; // si le joueur ne sélectionne personne il à par defaut le héros 1
 function Start () {
 
@@ -12,23 +12,23 @@ heroEnregistrer = PlayerPrefs.GetInt('heroChoisi'); //va cherhcer le héros choi
 
 
 if (heroEnregistrer == 1){
-	hero1.SetActive(true); //active le gameobject utilisé
-	Destroy(hero2); // détruit les héros inutile dans le gameobject pour optimiser le jeu
-	Destroy(hero3);
+	Nakiya.SetActive(true); //active le gameobject utilisé
+	Destroy(Kaseem); // détruit les héros inutile dans le gameobject pour optimiser le jeu
+	Destroy(Kayden);
 }
 
 if (heroEnregistrer == 2){
-	hero2.GetComponent.<Renderer>().enabled = true;
-	Destroy(hero1);
-	Destroy(hero3);
+	Kaseem.GetComponent.<Renderer>().enabled = true;
+	Destroy(Nakiya);
+	Destroy(Kayden);
 	Destroy(transform.Find("ninja").gameObject);
 
 }
 
 if (heroEnregistrer == 3){
-	hero3.GetComponent.<Renderer>().enabled = true;
-	Destroy(hero1);
-	Destroy(hero2);
+	Kayden.GetComponent.<Renderer>().enabled = true;
+	Destroy(Nakiya);
+	Destroy(Kaseem);
 	Destroy(transform.Find("ninja").gameObject);
 
 }

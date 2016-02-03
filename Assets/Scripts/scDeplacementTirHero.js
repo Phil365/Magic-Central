@@ -100,6 +100,13 @@ private var nouveauProjectile:GameObject;
  */
 
 private var force:int=100;
+ /*
+ * Qte de mana utilisé pour le Pouvoir
+ * @access public
+ * @var force
+ */
+
+private var coupPouvoir:int=10;
 private var loopHandle: boolean = true;
 private var saut= false;
 private var gestionPotion:scGestionInventaire;
@@ -119,7 +126,7 @@ private var endommage : boolean;
  */
 
 function Start ()
- {
+ {Time.timeScale = 1;
 	 while(loopHandle){
 	 regenMana();
 	
@@ -214,31 +221,27 @@ function Tourner ()
 
         // Set the player's rotation to this new rotation.
         joueurRigidbody.MoveRotation(nouvelleRotation);
-        if (Input.GetButtonDown('Fire1'))
+   if (Input.GetButtonDown('Fire1'))
         {
-        Manadisponible-=10;
-        if(Manadisponible <=0)
-        {
-        Manadisponible = 0;
-        }
-        ManaSlider.value = Manadisponible;
-        }
-		if (Input.GetButtonUp("Fire1")){
-			if(Manadisponible>1){
-				if(this.projectile){
-
-				// Vecteur qui part de la position du joueur
-				var position:Vector3=transform.position;
-				position.y +=0.75;
-				Debug.Log("joueurSouris:" + joueurSouris);
-
-				//Instantiation des projectiles 
-				nouveauProjectile = Instantiate(projectile, position, transform.rotation);
-				nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
-			
+			if(Manadisponible>=10){
+				if(this.projectile){					// Vecteur qui part de la position du joueur
+					var position:Vector3=transform.position;
+					position.y +=0.75;
+					Debug.Log("joueurSouris:" + joueurSouris);
+					//Instantiation des projectiles 
+					nouveauProjectile = Instantiate(projectile, position, transform.rotation);
+					nouveauProjectile.GetComponent.<Rigidbody>().AddForce(joueurSouris * force);
+					Manadisponible-=10;
+	        		if(Manadisponible <=0)
+		        	{
+		       			 Manadisponible = 0;
+		        	}
+		        	ManaSlider.value = Manadisponible;
 				}	
 			}
 		}
+
+
     }
 }
 function regenMana(){
@@ -246,6 +249,7 @@ function regenMana(){
 
 	Manadisponible += 10;
 	}
+
 	else if(Manadisponible >= 61){
 
 	Manadisponible = 60;
