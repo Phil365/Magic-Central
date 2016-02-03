@@ -87,8 +87,11 @@ public var boutonAchatPotionMana:GameObject;
 
 function OnTriggerEnter(trigger:Collider) 
 {
+	if (trigger.gameObject.name== 'Hero'){//Ouverture du panneau de vente de potions
+	  panneauPotions.SetActive(true);
+    Time.timeScale = 0;
 
-			trig = true;
+		}	
 
 }
 
@@ -101,12 +104,12 @@ function Start () {
 }
 
 function Update () {
-
-	if (trig == true && gameObject.name == "trigMagasin") 
+/*
+	if (trig == true && gameObject.name == "trigMagasin" ) 
 	{
 		ouvrirPanneauPotions();
 	}
-
+*/
 	//Recuperation de la variable Or du personnage
 	orActuel = gestionInventaire.orInventaire;
 	Debug.Log(orActuel);
@@ -127,13 +130,7 @@ function Update () {
 	}
 }
 
-//Ouverture du panneau de vente de potions
-function ouvrirPanneauPotions() 
-{
-    panneauPotions.SetActive(true);
-    Time.timeScale = 0;
 
-}
 
 //fermer le panneau de vente de potions
 function fermerPanneauPotions() 
