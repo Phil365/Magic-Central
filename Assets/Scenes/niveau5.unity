@@ -2299,6 +2299,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &234395606 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11404188, guid: 07671afaabe534731a902c6a1015dd7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1551529396}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &235695819
 Prefab:
   m_ObjectHideFlags: 0
@@ -6287,12 +6293,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 601a1de40ba01194bace0d54653b0035, type: 3}
   m_IsPrefabParent: 0
---- !u!114 &680781809 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11405874, guid: 07671afaabe534731a902c6a1015dd7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1551529396}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &681491967 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 601a1de40ba01194bace0d54653b0035, type: 3}
@@ -8366,12 +8366,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &934752038 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11438422, guid: 07671afaabe534731a902c6a1015dd7a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1551529396}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &941075686
 Prefab:
   m_ObjectHideFlags: 0
@@ -13884,6 +13878,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 601a1de40ba01194bace0d54653b0035, type: 3}
   m_IsPrefabParent: 0
+--- !u!114 &1464511250 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11411520, guid: 07671afaabe534731a902c6a1015dd7a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1551529396}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1465030347
 Prefab:
   m_ObjectHideFlags: 0
@@ -16014,11 +16014,11 @@ Prefab:
     - target: {fileID: 11461544, guid: e9a07119597bbb74db009a9a14b10939, type: 2}
       propertyPath: PotionSanteTexte
       value: 
-      objectReference: {fileID: 680781809}
+      objectReference: {fileID: 1464511250}
     - target: {fileID: 11461544, guid: e9a07119597bbb74db009a9a14b10939, type: 2}
       propertyPath: PotionManaTexte
       value: 
-      objectReference: {fileID: 934752038}
+      objectReference: {fileID: 234395606}
     - target: {fileID: 11476310, guid: e9a07119597bbb74db009a9a14b10939, type: 2}
       propertyPath: ManaSlider
       value: 
