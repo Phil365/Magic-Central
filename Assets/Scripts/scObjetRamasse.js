@@ -1,7 +1,27 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * GameObject des potions de vie
+ * @access public
+ * @var potionVie
+ */   
 
 public var potionVie: GameObject;
+
+/*
+ * GameObject des potions de mana
+ * @access public
+ * @var potionMana
+ */   
+
 public var potionMana: GameObject;
+
+/*
+ * GameObject d'or
+ * @access public
+ * @var tasOr
+ */   
+
 public var tasOr: GameObject;
 
 function Start () {

@@ -1,6 +1,19 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * gameObject heros
+ * @access public
+ * @var heros
+ */ 
 
 public var heros:GameObject;
+
+/*
+ * Référence au script de gestion d'inventaire du hero
+ * @access private
+ * @var scInventaireHeros
+ */ 
+
 private var scInventaireHeros:scGestionInventaire;
 
 function Start () {
