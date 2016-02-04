@@ -1,8 +1,35 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * vie des Minions
+ * @access public
+ * @var vieMinion
+ */   
 
 public var vieMinion:float;
+
+/*
+ * mana des minions
+ * @access public
+ * @var manaMinion
+ */   
+
 public var manaMinion:float;
+
+/*
+ * Degats des minions
+ * @access public
+ * @var degatMinion
+ */   
+
 public var degatMinion:float;
+
+/*
+ * Référence au script de gestion des objets
+ * @access public
+ * @var scObjetRamasse
+ */   
+
 
 private var scObjetRamasse:scObjetRamasse;
 

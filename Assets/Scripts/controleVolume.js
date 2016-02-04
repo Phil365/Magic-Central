@@ -1,4 +1,10 @@
-﻿var sliderVolume: float = 1.0; //Set le volume au maximum au départ du jeu
+/*
+ * Permet de seter le volume au max au debut du jeu
+ * @access public
+ * @var sliderVolume
+ */          
+
+public var sliderVolume: float = 1.0; 
 
 function Start() {
 

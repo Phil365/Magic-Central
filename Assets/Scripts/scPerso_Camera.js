@@ -1,8 +1,21 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * Cible de la caméra
+ * @access public
+ * @var cible
+ */ 
+
 public var cible:GameObject;
 
+/*
+ * Distance de la caméra
+ * @access private
+ * @var distance
+ */ 
 
- private var distance:float=1;
+private var distance:float=1;
+
 function Start () {
 
 }

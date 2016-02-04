@@ -1,7 +1,27 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * Selection des personnages hero 1
+ * @access public
+ * @var hero1
+ */   
 
 public var hero1: GameObject;
+
+/*
+ * Selection des personnages hero2
+ * @access public
+ * @var hero2
+ */   
+
 public var hero2: GameObject;
+
+/*
+ * Selection des personnages hero3
+ * @access public
+ * @var hero3
+ */   
+
 public var hero3: GameObject;
 
 private var heroChoisi : int = 1; // par défaut le héros 1 est sélectionner si utilisateur ne sélectionne personne 
