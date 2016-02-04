@@ -1,17 +1,96 @@
-﻿#pragma strict
+#pragma strict
 
 /*Mini IA - Source : http://answers.unity3d.com/questions/26177/how-to-create-a-basic-follow-ai.html */
+
+/*
+ * Temps entre les attaques des minions
+ * @access public
+ * @var tempEntreAttaque
+ */          
+
 var tempEntreAttaque : float= 5f;
-public var cible:GameObject; //cible de l'agent
-public var agent:NavMeshAgent; //agent du NavMesh
-public var porteeMini:float = 10f; //mini
-public var porteeMaxi:float = 10f; //max
-public var exclamation:GameObject; //exclamation quand il voit le héros
-private var stop : float=0; //distance où l'ennemi stoppe
+
+/*
+ * Cibles de l'agent / GameObject
+ * @access public
+ * @var cible
+ */      
+
+public var cible:GameObject; 
+
+/*
+ * agent du NavMesh
+ * @access public
+ * @var agent
+ */      
+
+public var agent:NavMeshAgent; 
+
+/*
+ * Portée minimum
+ * @access public
+ * @var porteeMini
+ */   
+
+public var porteeMini:float = 10f; 
+
+/*
+ * Portée maximum
+ * @access public
+ * @var porteeMaxi
+ */   
+
+public var porteeMaxi:float = 10f;
+
+/*
+ * Exclamation quand il voit le héros
+ * @access public
+ * @var exclamation
+ */   
+
+public var exclamation:GameObject;
+
+/*
+ * Distance où l'ennemi stoppe
+ * @access public
+ * @var stop
+ */   
+
+private var stop : float=0; 
+
+/*
+ * Dégats du minion
+ * @access private
+ * @var degatMinion
+ */   
+
 public var degatMinion:int =2;
+
+/*
+ * GameObject Hero
+ * @access private
+ * @var hero
+ */   
+
 private var hero: GameObject;
+
+/*
+ * Référence au script de gestion du hero
+ * @access private
+ * @var santeHero
+ */   
+
 private var santeHero:scDeplacementTirHero;
+
+/*
+ * Timer
+ * @access private
+ * @var timer
+ */   
+
 private var timer:float;
+
+
 function Awake () {
 	hero= GameObject.FindGameObjectWithTag('Hero');
 	santeHero = hero.GetComponent.<scDeplacementTirHero>();

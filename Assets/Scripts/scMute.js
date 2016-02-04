@@ -1,9 +1,15 @@
-﻿#pragma strict
+#pragma strict
+
+/*
+ * Référence à l'audioSource
+ * @access public
+ * @var musique
+ */   
 
 public var musique:AudioSource;
 
 function Start () {
-	//musique = GetComponent.<AudioSource>(); //Prend l'audio source et la place dans la variable musique
+	
 }
 
 function Update () {
